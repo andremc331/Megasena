@@ -8,7 +8,7 @@ const carregarDadosCSV = (): Promise<Mega[]> => {
     const dados: Mega[] = [];
 
     fs.createReadStream('Megasena.csv')
-      .pipe(csv())
+      .pipe(csv({separator: ';'}))
       .on('data', (row: Record<string, string>) => {
         // Parseando os dados de cada linha
         const concurso = parseInt(row['Concurso']);
